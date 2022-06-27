@@ -35,7 +35,7 @@
             </div>
             <div class="card-body">
                 <!-- UNTUK LOGIC ROLE -->
-                <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/create'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
+                <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/add'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
                 <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/index'); ?>" role="button" style="margin-bottom: 2%">Daftar Perawatan</a>
                 <!-- UNTUK LOGIC ROLE -->
                 <table class="table table-striped table-bordered ">

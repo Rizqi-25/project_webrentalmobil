@@ -30,6 +30,65 @@ class Mobil extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+    public function add(){  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM TAMBAH MOBIL
+
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+        $this->load->view('mobil/add');
+        $this->load->view('layout/footer');
+    }
+
+    public function save(){
+        $this->load->model('mobil_model', 'mobil');
+
+        $_nopol = $this->input->post('nopol'); // ? 1
+        $_warna = $this->input->post('warna'); // ? 2
+        $_biaya_sewa = $this->input->post('biaya_sewa'); // ? 3
+        $_deskripsi = $this->input->post('deskripsi'); // ? 4
+        $_cc = $this->input->post('cc'); // ? 5
+        $_tahun = $this->input->post('tahun'); // ? 6
+        $_merk_id = $this->input->post('merk_id');  // ? 7 
+        $_foto = $this->input->post('foto');    // ? 8
+        $_edit = $this->input->post('edit'); //INI UNTUK MENGECEK APAKAH FORM INI UNTUK EDIT ATAU TAMBAH DATA MOBIL BARU (HIDDEN FIELD) ? 9
+
+        $data_mbl[] = $_nopol; // ? 1
+        $data_mbl[] = $_warna;  // ? 2
+        $data_mbl[] = $_biaya_sewa; // ? 3
+        $data_mbl[] = $_deskripsi;  // ? 4
+        $data_mbl[] = $_cc; // ? 5
+        $data_mbl[] = $_tahun;  // ? 6
+        $data_mbl[] = $_merk_id;    // ? 7
+        $data_mbl[] = $_foto;      // ? 8
+
+        if (isset($_edit)) {
+            // JIKA UPDATE DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD UPDATE YANG ADA DIDALAM MODEL MOBIL_MODEL.PHP
+            $data_mbl[] = $_edit; // ? 9
+            $this->mobil->update($data_mbl);
+        } else {
+            // JIKA TAMBAH DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD INSERT YANG ADA DIDALAM MODEL MOBIL_MODEL.PHP
+            $this->mobil->insert($data_mbl);
+        }
+
+        redirect(base_url().'index.php/mobil/view?id='.$_nopol, 'refresh');
+    }
+
+    public function edit(){  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM EDIT MOBIL
+        $_nopol = $this->input->get('id');
+        $this->load->model('mobil_model', 'mobil');
+        $data['mbledit'] = $this->mobil->findById($_nopol);
+        $this->load->view('layout/header');
+        $this->load->view('layout/sidebar');
+        $this->load->view('mobil/update', $data);
+        $this->load->view('layout/footer');
+    } 
+
+    public function delete(){
+        $_nopol = $this->input->get('id');
+        $this->load->model('mobil_model', 'mobil');
+        $this->mobil->delete($_nopol);
+        redirect(base_url().'index.php/mobil', 'refresh');
+    }
+
     public function upload()
     {
         $_nopol = $this->input->post('nopol');
