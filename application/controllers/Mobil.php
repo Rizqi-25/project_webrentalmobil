@@ -30,7 +30,8 @@ class Mobil extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    public function add(){  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM TAMBAH MOBIL
+    public function add()
+    {  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM TAMBAH MOBIL
 
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
@@ -38,7 +39,8 @@ class Mobil extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-    public function save(){
+    public function save()
+    {
         $this->load->model('mobil_model', 'mobil');
 
         $_nopol = $this->input->post('nopol'); // ? 1
@@ -69,10 +71,11 @@ class Mobil extends CI_Controller
             $this->mobil->insert($data_mbl);
         }
 
-        redirect(base_url().'index.php/mobil/view?id='.$_nopol, 'refresh');
+        redirect(base_url() . 'index.php/mobil/view?id=' . $_nopol, 'refresh');
     }
 
-    public function edit(){  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM EDIT MOBIL
+    public function edit()
+    {  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM EDIT MOBIL
         $_nopol = $this->input->get('id');
         $this->load->model('mobil_model', 'mobil');
         $data['mbledit'] = $this->mobil->findById($_nopol);
@@ -80,30 +83,20 @@ class Mobil extends CI_Controller
         $this->load->view('layout/sidebar');
         $this->load->view('mobil/update', $data);
         $this->load->view('layout/footer');
-    } 
+    }
 
-    public function delete(){
+    public function delete()
+    {
         $_nopol = $this->input->get('id');
         $this->load->model('mobil_model', 'mobil');
         $this->mobil->delete($_nopol);
-        redirect(base_url().'index.php/mobil', 'refresh');
+        redirect(base_url() . 'index.php/mobil', 'refresh');
     }
 
     public function upload()
     {
         $_nopol = $this->input->post('nopol');
         $this->load->model("mobil_model", "mobil");
-        // $array = explode('.', $_FILES['fotomhs']['name']);
-        // $extension = end($array);
-        // if ($_FILES['fotomhs']['image_type'] == 'jpg') {
-        //     $new_name =  $_nim . '.' . 'jpg';
-        //     $config['file_name'] = $new_name;}
-        // elseif ($_FILES['fotomhs']['image_type'] == 'png') {
-        //     $new_name =  $_nim . '.' . 'png';
-        //     $config['file_name'] = $new_name;}
-        // else{
-        //     echo "File tidak sesuai";
-        // }
         $new_name =  $_nopol . '.' . 'jpg';
         $config['file_name'] = $new_name;
         $config['upload_path']          = 'uploads/foto/';

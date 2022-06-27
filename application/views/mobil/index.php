@@ -48,6 +48,7 @@
                             <th>WARNA</th>
                             <th>BIAYA SEWA</th>
                             <th>CC</th>
+                            <th>MOBIL ID</th>
                             <th>Tahun</th>
                             <th>Deskipsi</th>
                             <th>Action</th>
@@ -66,12 +67,16 @@
                                 <td><?= $obj->warna ?></td>
                                 <td><?= $obj->biaya_sewa ?></td>
                                 <td><?= $obj->cc ?></td>
+                                <td><?= $obj->mobil_id ?></td>
                                 <td><?= $obj->tahun ?></td>
-                                <td style="width:30%"><?= $obj->deskripsi ?> </td>
+                                <td style="width:20%"><?= $obj->deskripsi ?> </td>
                                 <td>
-                                    <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>">Booking</a>
-                                    <!-- UNTUK LOGIC ROLE -->
-                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
+                                    <div style="margin-bottom: 2%">
+                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>">Booking</a>
+                                        <!-- UNTUK LOGIC ROLE -->
+                                        <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
+                                    </div>
+                                    <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->mobil_id ?>">Lakukan Perawatan</a>
                                     <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
                                     <!-- UNTUK LOGIC ROLE -->
                                 </td>

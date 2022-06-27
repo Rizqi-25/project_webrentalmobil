@@ -46,7 +46,7 @@
                             <th>BIAYA PERAWATAN</th>
                             <th>KM MOBIL</th>
                             <th>DESKRIPSI PERAWATAN</th>
-                            <th>Action</th>
+                            <!-- <th>Action</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -61,14 +61,14 @@
                                 <td><?= $obj->produk ?></td>
                                 <td><?= $obj->jenis_perwatan ?></td>
                                 <td><?= $obj->tanggal   ?></td>
-                                <td><?= $obj->biaya_perawatan?></td>
-                                <td><?= $obj-> km_mobil ?></td>
-                                <td ><?= $obj->deskripsi ?> </td>
-                                <td style="width: 25%">
-                                <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->nopol ?>" >Lakukan Perawatan</a>
+                                <td><?= $obj->biaya_perawatan ?></td>
+                                <td><?= $obj->km_mobil ?></td>
+                                <td><?= $obj->deskripsi ?> </td>
+                                <td >
                                     <!-- UNTUK LOGIC ROLE -->
-                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/perawatan/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
-                                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/perawatan/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Daftar Perawatan Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
+                                    <!-- <a class="btn btn-primary" href="<?= (base_url() . 'index.php/perawatan/view?id='); ?><?= $obj->nopol ?>">View</a>
+                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/perawatan/edit?id='); ?><?= $obj->nopol ?>">Edit</a> -->
+                                    <!-- <a class="btn btn-primary" href="<?= (base_url() . 'index.php/perawatan/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Menyelesaikan Perawatan Mobil dengan NOPOL <?= $obj->nopol ?>?, jika IYA data perawatan mobil dengan NOPOL <?= $obj->nopol ?> akan DIHAPUS ')) {return false}">Selesai Perawatan</a> -->
                                     <!-- UNTUK LOGIC ROLE -->
                                 </td>
                             </tr>
