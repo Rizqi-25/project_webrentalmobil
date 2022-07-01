@@ -5,4 +5,11 @@ class Login extends CI_Controller {
 
 
 
+
+
+    public function registrasi()
+    {
+        $data = [];
+        $this->load->view('registrasi', $data);
+    }
 }
