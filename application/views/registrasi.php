@@ -25,7 +25,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-						<?php echo form_open('login/register') ?>
+						<?php echo form_open('user/register') ?>
 						<div class="form-group">
 							<input type="text" name="username" class="form-control" placeholder="Username" required>
 						</div>
