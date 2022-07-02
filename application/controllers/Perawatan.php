@@ -16,6 +16,16 @@ class Perawatan extends CI_Controller
         $this->load->view('layout/footer');
     }
 
+    // public function jns_perawatan(){
+    //     $this->load->model('perawatan_model', 'perawatan');
+
+    //     $data['jns_perawatan'] = $this->perawatan->getAlljns_perawatan();
+    //     $this->load->view('layout/header');
+    //     $this->load->view('layout/sidebar');
+    //     $this->load->view('perawatan/add', $data);
+    //     $this->load->view('layout/footer');
+    // }
+
 
     // public function view()
     // {
@@ -31,23 +41,28 @@ class Perawatan extends CI_Controller
 
     public function do_perawatan()
     {  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM LAKUKAN PERAWATAN
+        $this->load->model('perawatan_model', 'perawatan');
+
+        $data['jns_perawatan'] = $this->perawatan->getAlljns_perawatan();
 
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-        $this->load->view('perawatan/add');
+        $this->load->view('perawatan/add', $data);
         $this->load->view('layout/footer');
     }
 
     public function save()
     {
         $this->load->model('perawatan_model', 'perawatan');
-
+        // $_id = $this->input->get('mobil_id');
+        $this->load->model('mobil_model', 'mobil');
+        
         $_tgl_perawatan = $this->input->post('tgl_perawatan'); // ? 1
         $_biaya = $this->input->post('biaya'); // ? 2
         $_km_mobil = $this->input->post('km_mobil'); // ? 3
         $_deskripsi = $this->input->post('deskripsi'); // ? 4
         $_mobil_id = $this->input->post('mobil_id');  // ? 5
-        $_jns_perawatan_id = $this->input->post('jenis_perawatan_id'); // ? 6
+        $_jns_perawatan_id = $this->input->post('jns_perawatan_id'); // ? 6
         $_edit = $this->input->post('edit'); //INI UNTUK MENGECEK APAKAH FORM INI UNTUK EDIT ATAU TAMBAH DATA MOBIL BARU (HIDDEN FIELD) ? 7
 
         $data_prw[] = $_tgl_perawatan; // ? 1
@@ -56,7 +71,7 @@ class Perawatan extends CI_Controller
         $data_prw[] = $_deskripsi; // ? 4
         $data_prw[] = $_mobil_id; // ? 5
         $data_prw[] = $_jns_perawatan_id; // ? 6
-        
+
 
         if (isset($_edit)) {
             // JIKA UPDATE DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD UPDATE YANG ADA DIDALAM MODEL PERAWATAN_MODEL.PHP

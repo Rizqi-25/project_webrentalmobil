@@ -44,6 +44,9 @@
                                     <td><?= $mbl->nopol ?></td>
                                 </tr>
                                 <tr>
+                                    <td>Merk Id</td>
+                                    <td><?= $mbl->merk_id ?></td>
+                                <tr>
                                     <td>Merk</td>
                                     <td><?= $mbl->merk ?></td>
                                 </tr>
@@ -69,6 +72,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <a href="<?= (base_url() . 'index.php/sewa/book' ); ?> "><input type="submit" class="btn btn-primary" value="BOOKING NOW!"></a>
                     </div>
                     <div class="col-sm-4">
                         <b>Foto</b>

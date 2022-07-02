@@ -34,7 +34,84 @@
                 </div>
             </div>
             <div class="card-body">
-                <h1>INI UNTUK FORM TAMBAH PERAWATAN MOBIL</h1>
+                <div id="booking" class="section">
+                    <div class="section-center">
+                        <div class="container">
+                            <div class="row">
+                                <div class=" col-sm-6">
+                                    <div class="booking-form">
+                                        <?php echo form_open('perawatan/save') ?>
+                                        <div class="form-group">
+                                            <span class="form-label">Treatment Date</span>
+                                            <input class="form-control" type="date" required name="tgl_perawatan">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Cost</span>
+                                                    <input class="form-control" type="text" placeholder="Cost" name="biaya">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">KM Mobil</span>
+                                                    <input class="form-control" type="text" placeholder="CC" name="km_mobil">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <span class="form-label">Description</span>
+                                                    <input class="form-control" type="text" placeholder="Desc" name="deskripsi">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Mobil ID</span>
+                                                    <input class="form-control" type="text" placeholder="mobil id" name="mobil_id" >
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <span class="form-label">Jenis Perawatan ID</span>
+                                                    <input class="form-control" type="text" placeholder="jenis perawatan id" name="jns_perawatan_id">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-btn">
+                                            <button type="submit" class=" btn-light">Do Treatment</button>
+                                        </div>
+                                        <?php echo form_close() ?>
+                                    </div>
+                                </div>
+                                <div class=" col-sm-6">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <th>ID</th>
+                                            <th>Jenis Perawatan</th>
+                                        </thead>
+
+                                        <tbody>
+                                            <?php
+                                            foreach ($jns_perawatan as $jp) {
+                                            ?>
+                                                <tr>
+                                                    <td><?= $jp->id ?></td>
+                                                    <td><?= $jp->nama ?></td>
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">

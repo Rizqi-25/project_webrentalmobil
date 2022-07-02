@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,6 +14,17 @@
     <link rel="stylesheet" href="<?php echo base_url('plugins/fontawesome-free-6.1.1-web/css/all.min.css') ?>">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('dist/css/adminlte.min.css') ?>">
+    <!-- LINEARICONS -->
+    <!-- <link rel="stylesheet" href="fonts/linearicons/style.css"> -->
+    <!-- <link rel="stylesheet" href="<?php echo base_url("dist/Registrasi/fonts/linearicons/style.css") ?>"> -->
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <!-- <link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css"> -->
+    <link rel="stylesheet" href="<?php echo base_url("dist/Registrasi/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css") ?>">
+    <!-- DATE-PICKER -->
+    <link rel="stylesheet" href="<?php echo base_url("dist/Registrasi/vendor/date-picker/css/datepicker.min.css") ?>">
+
+    <!-- STYLE CSS -->
+    <!-- <link rel="stylesheet" href="<?php echo base_url("dist/Registrasi/css/style.css") ?>"> -->
 </head>
 
 <body class="hold-transition sidebar-mini">

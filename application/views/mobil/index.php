@@ -43,6 +43,7 @@
                         <tr>
                             <th>NO</th>
                             <th>NOPOL</th>
+                            <th>MERK ID</th>
                             <th>MERK</th>
                             <th>PRODUK</th>
                             <th>WARNA</th>
@@ -62,6 +63,7 @@
                             <tr>
                                 <td><?= $nomor ?></td>
                                 <td><?= $obj->nopol ?></td>
+                                <td><?= $obj->merk_id ?></td>
                                 <td><?= $obj->merk ?></td>
                                 <td><?= $obj->produk ?></td>
                                 <td><?= $obj->warna ?></td>

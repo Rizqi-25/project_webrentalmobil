@@ -21,6 +21,15 @@ class Mobil_model extends CI_Model
         return $query->row();
     }
 
+    public function findByMobilId($id)
+    {
+        // SELECT * FROM merkmobil WHERE mobil_id=$id;
+        $this->db->where('mobil_id', $id);
+        $query = $this->db->get($this->table);
+        return $query->row();
+    }
+
+
     public function insert($data){  //UNTUK TAMBAH DATA MOBIL BARU
         // INSERT INTO mobil (nopol, warna, biaya_sewa, deskripsi, cc, tahun, merk_id, foto) 
         // VALUES ('B4321ASD', 'Hitam', '200000', 'Mobil ini sangat bagus', '1500', '2018', '1', 'B4321ASD.jpg');
