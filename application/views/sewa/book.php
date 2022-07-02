@@ -50,57 +50,76 @@
 																<i class="fa fa-address-card"></i>
 															</div>
 														</div>
-														<input id="nik" name="nik" placeholder="NIK KTP" type="text" class="form-control">
+														<input id="nik" name="nik" placeholder="NIK KTP" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
 													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="nopol" class="col-4 col-form-label">NOPOL</label>
+												<label for="nama" class="col-4 col-form-label">Nama</label>
 												<div class="col-8">
 													<div class="input-group">
 														<div class="input-group-prepend">
 															<div class="input-group-text">
-																<i class="fa fa-adn"></i>
+																<i class="fa fa-address-book"></i>
 															</div>
 														</div>
-														<input id="nopol" name="nopol" type="text" class="form-control" >
+														<input id="nama" name="nama" placeholder="Nama Anda" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
 													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="merk_id" class="col-4 col-form-label">Merk Id</label>
+												<label for="nopol" class="col-4 col-form-label">Nopol</label>
 												<div class="col-8">
 													<div class="input-group">
 														<div class="input-group-prepend">
 															<div class="input-group-text">
-																<i class="fa fa-automobile"></i>
+																<i class="fa fa-car"></i>
 															</div>
 														</div>
-														<input id="merk_id" name="merk_id" placeholder="merk_id" type="text" class="form-control">
+														<input id="nopol" name="nopol" placeholder="BXXXXABC" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
 													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="merkid" class="col-4 col-form-label">Merk</label>
+												<div class="col-8">
+													<input id="merkid" name="merkid" placeholder="merk id" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
 												</div>
 											</div>
 											<div class="form-group row">
 												<label for="warna" class="col-4 col-form-label">Warna</label>
 												<div class="col-8">
+													<input id="warna" name="warna" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="biaya" class="col-4 col-form-label">Biaya</label>
+												<div class="col-8">
 													<div class="input-group">
 														<div class="input-group-prepend">
 															<div class="input-group-text">
-																<i class="fa fa-bitbucket"></i>
+																<i class="fa "></i>
 															</div>
 														</div>
-														<input id="warna" name="warna" type="text" class="form-control">
+														<input id="biaya" name="biaya" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
 													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="biaya_sewa" class="col-4 col-form-label">Biaya Sewa</label>
+												<label for="tglmulai" class="col-4 col-form-label">Tanggal Mulai</label>
 												<div class="col-8">
-													<input id="biaya_sewa" name="biaya_sewa" type="text" class="form-control">
+													<div class="input-group">
+														<input id="tglmulai" name="tglmulai" type="text" class="form-control" spellcheck="false" data-ms-editor="true">
+														<div class="input-group-append">
+															<div class="input-group-text">
+																<i class="fa fa-calendar"></i>
+															</div>
+														</div>
+													</div>
 												</div>
 											</div>
 											<div class="form-group row">
-												<label for="tgl_mulai" class="col-4 col-form-label">Tanggal Mulai</label>
+												<label for="tglselesai" class="col-4 col-form-label">Tanggal Selesai</label>
 												<div class="col-8">
 													<div class="input-group">
 														<div class="input-group-prepend">
@@ -108,20 +127,7 @@
 																<i class="fa fa-calendar"></i>
 															</div>
 														</div>
-														<input id="tgl_mulai" name="tgl_mulai" type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd M yyyy">
-													</div>
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="tgl_selesai" class="col-4 col-form-label">Tanggal Selesai</label>
-												<div class="col-8">
-													<div class="input-group">
-														<div class="input-group-prepend">
-															<div class="input-group-text">
-																<i class="fa fa-calendar"></i>
-															</div>
-														</div>
-														<input id="tgl_selesai" name="tgl_selesai" type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd M yyyy">
+														<input id="tglselesai" name="tglselesai" type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd M yyyy" spellcheck="false" data-ms-editor="true">
 													</div>
 												</div>
 											</div>
@@ -134,8 +140,17 @@
 																<i class="fa fa-location-arrow"></i>
 															</div>
 														</div>
-														<input id="tujuan" name="tujuan" type="text" class="form-control">
+														<input id="tujuan" name="tujuan" type="text" class="form-control datepicker-here" data-language='en' data-date-format="dd M yyyy" spellcheck="false" data-ms-editor="true">
 													</div>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label for="mobil_id" class="col-4 col-form-label">Mobil</label>
+												<div class="col-8">
+													<select id="mobil_id" name="mobil_id" class="custom-select">
+														<option value="Toyota">Toyota</option>
+														<option value="Honda">Honda</option>
+													</select>
 												</div>
 											</div>
 											<div class="form-group row">
@@ -181,14 +196,14 @@
 													<td><?= $obj->mobil_id ?></td>
 													<td><?= $obj->tahun ?></td>
 												</tr>
-												
+
 											<?php
 												$nomor++;
 											} ?>
 										</tbody>
-									</table>
-									
-								</div> -->
+									</table> -->
+
+								</div>
 							</div>
 						</div>
 						<!-- /.card-body -->
