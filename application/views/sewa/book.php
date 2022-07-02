@@ -63,7 +63,7 @@
 																<i class="fa fa-adn"></i>
 															</div>
 														</div>
-														<input id="nopol" name="nopol" type="text" class="form-control">
+														<input id="nopol" name="nopol" type="text" class="form-control" >
 													</div>
 												</div>
 											</div>
@@ -146,7 +146,49 @@
 										</form>
 									</div>
 								</div>
-								
+								<!-- <div class=" col-sm-8">
+									<table class="table table-striped table-bordered ">
+										<thead>
+											<tr>
+												<th>NO</th>
+												<th>NOPOL</th>
+												<th>MERK ID</th>
+												<th>MERK</th>
+												<th>PRODUK</th>
+												<th>WARNA</th>
+												<th>BIAYA SEWA</th>
+												<th>CC</th>
+												<th>MOBIL ID</th>
+												<th>Tahun</th>
+
+
+											</tr>
+										</thead>
+										<tbody>
+											<?php
+											$nomor = 1;
+											foreach ($list_mobil as $obj) {
+											?>
+												<tr>
+													<td><?= $nomor ?></td>
+													<td><?= $obj->nopol ?></td>
+													<td><?= $obj->merk_id ?></td>
+													<td><?= $obj->merk ?></td>
+													<td><?= $obj->produk ?></td>
+													<td><?= $obj->warna ?></td>
+													<td><?= $obj->biaya_sewa ?></td>
+													<td><?= $obj->cc ?></td>
+													<td><?= $obj->mobil_id ?></td>
+													<td><?= $obj->tahun ?></td>
+												</tr>
+												
+											<?php
+												$nomor++;
+											} ?>
+										</tbody>
+									</table>
+									
+								</div> -->
 							</div>
 						</div>
 						<!-- /.card-body -->

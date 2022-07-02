@@ -35,6 +35,7 @@
             </div>
             <div class="card-body">
                 <!-- UNTUK LOGIC ROLE -->
+                <a  href="<?=(base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
                 <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/add'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
                 <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/index'); ?>" role="button" style="margin-bottom: 2%">Daftar Perawatan</a>
                 <!-- UNTUK LOGIC ROLE -->
@@ -74,7 +75,7 @@
                                 <td style="width:20%"><?= $obj->deskripsi ?> </td>
                                 <td>
                                     <div style="margin-bottom: 2%">
-                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>">Booking</a>
+                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>">Detail</a>
                                         <!-- UNTUK LOGIC ROLE -->
                                         <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
                                     </div>

@@ -55,7 +55,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <span class="form-label">KM Mobil</span>
-                                                    <input class="form-control" type="text" placeholder="CC" name="km_mobil">
+                                                    <input class="form-control" type="text" placeholder="KM MOBIL" name="km_mobil">
                                                 </div>
                                             </div>
                                         </div>
