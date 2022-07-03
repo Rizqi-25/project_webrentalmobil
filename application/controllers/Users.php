@@ -17,7 +17,7 @@ class Users extends CI_Controller
 
     }
 
-    public function regitrasiUser(Type $var = null)
+    public function regitrasiUser()
     {
         $_username = $this->input->post('username');
         $_email = $this->input->post('email');
