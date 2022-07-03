@@ -115,13 +115,16 @@ SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE TABLE `merkmobil` (
   `nopol` tinyint NOT NULL,
+  `merk_id` tinyint NOT NULL,
   `merk` tinyint NOT NULL,
   `produk` tinyint NOT NULL,
   `warna` tinyint NOT NULL,
   `biaya_sewa` tinyint NOT NULL,
   `cc` tinyint NOT NULL,
+  `mobil_id` tinyint NOT NULL,
   `tahun` tinyint NOT NULL,
-  `deskripsi` tinyint NOT NULL
+  `deskripsi` tinyint NOT NULL,
+  `foto` tinyint NOT NULL
 ) ENGINE=MyISAM */;
 SET character_set_client = @saved_cs_client;
 
@@ -146,7 +149,7 @@ CREATE TABLE `mobil` (
   UNIQUE KEY `nopol_UNIQUE` (`nopol`),
   KEY `fk_produk_jenis_produk_idx` (`merk_id`),
   CONSTRAINT `fk_produk_jenis_produk` FOREIGN KEY (`merk_id`) REFERENCES `merk` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -179,7 +182,7 @@ CREATE TABLE `perawatan` (
   KEY `fk_perawatan_jenis_perawatan1_idx` (`jenis_perawatan_id`),
   CONSTRAINT `fk_pembelian_produk1` FOREIGN KEY (`mobil_id`) REFERENCES `mobil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_perawatan_jenis_perawatan1` FOREIGN KEY (`jenis_perawatan_id`) REFERENCES `jenis_perawatan` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,7 +191,7 @@ CREATE TABLE `perawatan` (
 
 LOCK TABLES `perawatan` WRITE;
 /*!40000 ALTER TABLE `perawatan` DISABLE KEYS */;
-INSERT INTO `perawatan` VALUES (1,'2022-06-12',850000,20500,'service rutin aja',1,2),(2,'2022-06-12',210000,20800,'ganti lampu belakang',1,4),(3,'2022-06-12',210000,2500,'ganti lampu spion kanan',2,4),(5,'2022-06-24',500000,10000,'Ganti Oli Mesin',3,1),(6,'2022-06-24',6000000,100000,'Turun Mesin',4,4);
+INSERT INTO `perawatan` VALUES (1,'2022-06-12',850000,20500,'service rutin aja',1,2),(2,'2022-06-12',210000,20800,'ganti lampu belakang',1,4),(3,'2022-06-12',210000,2500,'ganti lampu spion kanan',2,4),(5,'2022-06-24',500000,10000,'Ganti Oli Mesin',3,1),(6,'2022-06-24',6000000,100000,'Turun Mesin',4,4),(7,'2022-07-02',200000,20000,'Ganti Oli Mesin',2,1),(8,'2022-07-06',200000,20000,'Service rutin ',2,2);
 /*!40000 ALTER TABLE `perawatan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -305,10 +308,10 @@ UNLOCK TABLES;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb4_unicode_ci */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `merkmobil` AS select `a`.`nopol` AS `nopol`,`b`.`nama` AS `merk`,`b`.`produk` AS `produk`,`a`.`warna` AS `warna`,`a`.`biaya_sewa` AS `biaya_sewa`,`a`.`cc` AS `cc`,`a`.`tahun` AS `tahun`,`a`.`deskripsi` AS `deskripsi` from (`mobil` `a` join `merk` `b` on(`a`.`merk_id` = `b`.`id`)) */;
+/*!50001 VIEW `merkmobil` AS select `a`.`nopol` AS `nopol`,`a`.`merk_id` AS `merk_id`,`b`.`nama` AS `merk`,`b`.`produk` AS `produk`,`a`.`warna` AS `warna`,`a`.`biaya_sewa` AS `biaya_sewa`,`a`.`cc` AS `cc`,`a`.`id` AS `mobil_id`,`a`.`tahun` AS `tahun`,`a`.`deskripsi` AS `deskripsi`,`a`.`foto` AS `foto` from (`mobil` `a` join `merk` `b` on(`a`.`merk_id` = `b`.`id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -322,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-06-25 11:03:13
+-- Dump completed on 2022-07-02 20:18:02
