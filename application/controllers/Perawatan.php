@@ -42,7 +42,9 @@ class Perawatan extends CI_Controller
     public function do_perawatan()
     {  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM LAKUKAN PERAWATAN
         $this->load->model('perawatan_model', 'perawatan');
-
+        $_nopol = $this->input->get('id');
+        $this->load->model('mobil_model', 'mobil');
+        $data['mbledit'] = $this->mobil->findById($_nopol);
         $data['jns_perawatan'] = $this->perawatan->getAlljns_perawatan();
 
         $this->load->view('layout/header');

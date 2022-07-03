@@ -73,12 +73,12 @@
                                         <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Detail</a>
                                         <a href="<?= (base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
                                     </div>
-                                    <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
-                                        <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Edit</a>
-                                        <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->mobil_id ?>" style="margin-bottom: 2%">Lakukan Perawatan</a>
-                                        <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
-                                        <!-- UNTUK LOGIC ROLE -->
-                                    <?php } ?>
+
+                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Edit</a>
+                                    <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Lakukan Perawatan</a>
+                                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
+                                    <!-- UNTUK LOGIC ROLE -->
+
                                 </td>
                             </tr>
                         <?php

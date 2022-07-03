@@ -40,7 +40,10 @@
                             <div class="row">
                                 <div class=" col-sm-6">
                                     <div class="booking-form">
-                                        <?php echo form_open('perawatan/save') ?>
+                                        <?php
+                                        $hidden = ['edit' => $mbledit->nopol];
+                                        ?>
+                                        <?php echo form_open('perawatan/save', '', $hidden) ?>
                                         <div class="form-group">
                                             <span class="form-label">Treatment Date</span>
                                             <input class="form-control" type="date" required name="tgl_perawatan">
@@ -55,7 +58,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <span class="form-label">KM Mobil</span>
-                                                    <input class="form-control" type="text" placeholder="KM MOBIL" name="km_mobil">
+                                                    <input class="form-control" type="text" placeholder="KM MOBIL" name="km_mobil" >
                                                 </div>
                                             </div>
                                         </div>
@@ -71,7 +74,7 @@
                                             <div class="col-sm-6">
                                                 <div class="form-group">
                                                     <span class="form-label">Mobil ID</span>
-                                                    <input class="form-control" type="text" placeholder="mobil id" name="mobil_id" >
+                                                    <input class="form-control" type="text" placeholder="mobil id" name="mobil_id" value="<?=$mbledit->mobil_id?>"> 
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
