@@ -6,12 +6,7 @@
                 <div class="col-sm-6">
                     <h1>Rental Mobil</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Blank Page</li>
-                    </ol>
-                </div>
+
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -34,11 +29,11 @@
                 </div>
             </div>
             <div class="card-body">
-                <!-- UNTUK LOGIC ROLE -->
-                <a  href="<?=(base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
-                <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/add'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
-                <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/index'); ?>" role="button" style="margin-bottom: 2%">Daftar Perawatan</a>
-                <!-- UNTUK LOGIC ROLE -->
+                <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+
+                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/add'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
+                    <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/index'); ?>" role="button" style="margin-bottom: 2%">Daftar Perawatan</a>
+                <?php } ?>
                 <table class="table table-striped table-bordered ">
                     <thead>
                         <tr>
@@ -75,13 +70,15 @@
                                 <td style="width:20%"><?= $obj->deskripsi ?> </td>
                                 <td>
                                     <div style="margin-bottom: 2%">
-                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>">Detail</a>
-                                        <!-- UNTUK LOGIC ROLE -->
-                                        <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
+                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Detail</a>
+                                        <a href="<?= (base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
                                     </div>
-                                    <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->mobil_id ?>">Lakukan Perawatan</a>
-                                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
-                                    <!-- UNTUK LOGIC ROLE -->
+                                    <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+                                        <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Edit</a>
+                                        <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->mobil_id ?>" style="margin-bottom: 2%">Lakukan Perawatan</a>
+                                        <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
+                                        <!-- UNTUK LOGIC ROLE -->
+                                    <?php } ?>
                                 </td>
                             </tr>
                         <?php

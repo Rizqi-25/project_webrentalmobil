@@ -3,12 +3,21 @@ class Mobil_model extends CI_Model
 {
     private $table1 = 'mobil';
     private $table = 'merkmobil';  // INI TABLE HASIL DARI CREATE VIEW MENGGABUNGKAN TABLE MERK DAN MOBIL
+    private $table2 = 'merk';
 
     public function getAll()
     {
         //SELECT * FROM view merkmobil -> INI TABLE HASIL DARI CREATE VIEW MENGGABUNGKAN TABLE MERK DAN MOBIL
 
         $query = $this->db->get($this->table);
+        return $query->result();
+    }
+
+    public function getAllMerk()
+    {
+        //SELECT * FROM merk
+
+        $query = $this->db->get($this->table2);
         return $query->result();
     }
 

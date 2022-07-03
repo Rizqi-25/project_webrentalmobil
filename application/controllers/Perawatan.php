@@ -53,6 +53,7 @@ class Perawatan extends CI_Controller
 
     public function save()
     {
+        
         $this->load->model('perawatan_model', 'perawatan');
         // $_id = $this->input->get('mobil_id');
         $this->load->model('mobil_model', 'mobil');
@@ -76,10 +77,9 @@ class Perawatan extends CI_Controller
         if (isset($_edit)) {
             // JIKA UPDATE DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD UPDATE YANG ADA DIDALAM MODEL PERAWATAN_MODEL.PHP
             $data_prw[] = $_edit; // ? 9
-            $this->perawatan->update_perawatan($data_prw);
-        } else {
-            // JIKA TAMBAH DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD INSERT YANG ADA DIDALAM MODEL PERAWATAN_MODEL.PHP
             $this->perawatan->insert_perawatan($data_prw);
+        } else {
+            echo "Error";
         }
 
         redirect(base_url() . 'index.php/perawatan/', 'refresh');

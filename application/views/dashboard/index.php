@@ -24,14 +24,13 @@
     <!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container px-5">
-            <a class="navbar-brand" href="#!">Start Bootstrap</a>
+            <a class="navbar-brand" href="#!">Web Rental Mobil</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url("index.php/users/login") ?>">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url("index.php/users/register") ?>">Register</a></li>
                 </ul>
             </div>
         </div>
@@ -45,7 +44,7 @@
                         <h1 class="display-5 fw-bolder text-white mb-2">Sewa Mobil Mudah dengan hanya menggunakan website.</h1>
                         <p class="lead text-white-50 mb-4">Berbagai Macam Tipe dan Merk Mobil Tersedia.</p>
                         <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Booking Now!</a>
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#listcar">Booking Now!</a>
                             <!-- <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a> -->
                         </div>
                     </div>
@@ -57,25 +56,27 @@
     <section class="bg-light py-5 border-bottom">
         <div class="container ">
             <div class="text-center mb-5">
-                <h2 class="fw-bolder">DISINI TABLE MOBIL YANG BISA DISEWA</h2>
+                <h2 class="fw-bolder">DAFTAR MOBIL</h2>
                 <p class="lead mb-0">With our no hassle pricing plans</p>
             </div>
-            <div class="container">
-                <table class="table table-striped">
+            <div class="container" id="listcar">
+                <table class="table table-striped table-bordered ">
                     <thead>
                         <tr>
                             <th>NO</th>
                             <th>NOPOL</th>
+                            <th>MERK ID</th>
                             <th>MERK</th>
                             <th>PRODUK</th>
                             <th>WARNA</th>
                             <th>BIAYA SEWA</th>
                             <th>CC</th>
+                            <th>MOBIL ID</th>
                             <th>Tahun</th>
                             <th>Deskipsi</th>
                             <th>Action</th>
                         </tr>
-                    </thead> -->
+                    </thead>
                     <tbody>
                         <?php
                         $nomor = 1;
@@ -84,19 +85,22 @@
                             <tr>
                                 <td><?= $nomor ?></td>
                                 <td><?= $obj->nopol ?></td>
+                                <td><?= $obj->merk_id ?></td>
                                 <td><?= $obj->merk ?></td>
                                 <td><?= $obj->produk ?></td>
                                 <td><?= $obj->warna ?></td>
                                 <td><?= $obj->biaya_sewa ?></td>
                                 <td><?= $obj->cc ?></td>
+                                <td><?= $obj->mobil_id ?></td>
                                 <td><?= $obj->tahun ?></td>
-                                <td style="width:30%"><?= $obj->deskripsi ?> </td>
+                                <td style="width:20%"><?= $obj->deskripsi ?> </td>
                                 <td>
-                                    <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/booking?id='); ?><?= $obj->nopol ?>">Booking</a>
-                                    <!-- UNTUK LOGIC ROLE -->
-                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>">Edit</a>
-                                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
-                                    <!-- UNTUK LOGIC ROLE -->
+                                    <div style="margin-bottom: 2%">
+                                        <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Detail</a>
+                                        <!-- UNTUK LOGIC ROLE -->
+                                        <a href="<?= (base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button"></a>
+                                    </div>
+
                                 </td>
                             </tr>
                         <?php
@@ -116,30 +120,19 @@
             <div class="row gx-5">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h2 class="h4 fw-bolder">Honda</h2>
+                    <img src="<?php echo base_url('uploads/mobil2.jpg') ?>" alt="" class="img-thumbnail" width="250">
+
                 </div>
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h2 class="h4 fw-bolder">Suzuki</h2>
+                    <img src="<?php echo base_url('uploads/mobil3.jpg') ?>" alt="" class="img-thumbnail" width="250">
                 </div>
                 <div class="col-lg-4">
                     <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-                    <h2 class="h4 fw-bolder">Featured title</h2>
-                    <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                    <a class="text-decoration-none" href="#!">
-                        Call to action
-                        <i class="bi bi-arrow-right"></i>
-                    </a>
+                    <h2 class="h4 fw-bolder">Toyota</h2>
+                    <img src="<?php echo base_url('uploads/mobil1.jpg') ?>" alt="" class="img-thumbnail" width="250">
                 </div>
             </div>
         </div>

@@ -1,3 +1,6 @@
+<!--
+?> -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,20 +41,24 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url("index.php/dashboard") ?>" class="nav-link">Home</a>
+                    <a href="<?= (base_url() . 'index.php/dashboard'); ?>" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item d-none d-sm-inline-block">
+                    <a href="<?= (base_url() . 'index.php/mobil'); ?>" class="nav-link">Daftar Mobil</a>
                 </li>
                 <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
-                    <!-- <li class="nav-item d-none d-sm-inline-block">
-                        <a href=" <?php echo base_url("index.php/mahasiswa") ?>" class="nav-link">Mahasiswa</a>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="<?= (base_url() . 'index.php/users'); ?>" class="nav-link">Daftar Users</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
-                        <a href="<?php echo base_url("index.php/dosen") ?>" class="nav-link">Dosen</a>
-                    </li> -->
+                        <a href="<?= (base_url() . 'index.php/perawatan'); ?>" class="nav-link">Daftar Perawatan</a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <a href="<?= (base_url() . 'index.php/sewa'); ?>" class="nav-link">Daftar Penyewaan</a>
+                    </li>
                 <?php
                 }
                 ?>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
                 </li>
             </ul>
 
@@ -59,7 +66,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/login/logout'); ?>" role="button">LOGOUT</a>
+                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/users/logout'); ?>" role="button">LOGOUT</a>
                 </li>
 
 

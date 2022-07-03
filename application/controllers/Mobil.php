@@ -32,10 +32,11 @@ class Mobil extends CI_Controller
 
     public function add()
     {  //INI UNTUK MENGARAHKAN KE PENGISIAN FORM TAMBAH MOBIL
-
+        $this->load->model('mobil_model', 'mobil');
+        $data['merk'] = $this->mobil->getAllMerk();
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-        $this->load->view('mobil/add');
+        $this->load->view('mobil/add' , $data);
         $this->load->view('layout/footer');
     }
 
@@ -79,6 +80,7 @@ class Mobil extends CI_Controller
         $_nopol = $this->input->get('id');
         $this->load->model('mobil_model', 'mobil');
         $data['mbledit'] = $this->mobil->findById($_nopol);
+        $data['merk'] = $this->mobil->getAllMerk();
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
         $this->load->view('mobil/update', $data);

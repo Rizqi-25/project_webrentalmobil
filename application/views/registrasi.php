@@ -53,7 +53,7 @@
 						</div>
 						<?php echo form_close() ?>
 						<div class="form-group">
-							<a href="<?php echo base_url("index.php/login") ?>" class="form-control btn btn-primary submit px-3">I already have a account</a>
+							<a href="<?php echo base_url("index.php/users/login") ?>" class="form-control btn btn-primary submit px-3">I already have a account</a>
 						</div>
 						<!-- <div class="form-group d-md-flex">
 							<div class="w-50">

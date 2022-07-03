@@ -72,7 +72,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <a href="<?=(base_url() . 'index.php/sewa/book?id='); ?><?= $mbl->nopol ?> "><input type="submit" class="btn btn-primary" value="BOOKING NOW!"></a>
+                        <a href="<?= (base_url() . 'index.php/sewa/book?id='); ?><?= $mbl->nopol ?> "><input type="submit" class="btn btn-primary" value="BOOKING NOW!"></a>
                     </div>
                     <div class="col-sm-4">
                         <b>Foto</b>
@@ -83,10 +83,9 @@
                         // echo $filefoto;
                         $array = get_headers($filefoto);
                         $string = $array[0];
-                        if(strpos($string, "200"))
-                        {
+                        if (strpos($string, "200")) {
                             echo '<img src="' . $filefoto . '" class="img-thumbnail" width="250" alt="Foto">';
-                        }else{
+                        } else {
                             echo '<img src="' . base_url('uploads/foto/default.jpg') . '" class="img-thumbnail" width="250" alt="Foto">';
                         }
                         // if (file_exists($filefoto)) {
@@ -96,17 +95,19 @@
                         // }
                         ?>
                         <br>
-                        <b>Nama File: <?= $mbl->foto ?> </b>
+                        <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+                            <b>Nama File: <?= $mbl->foto ?> </b>
                             <br>
                             <?php
                             echo form_open_multipart('mobil/upload');
                             ?>
                             <b>Upload Foto Dengan Tipe JPG/PNG saja</b>
                             <br>
-                                <input type="hidden" name="nopol" value="<?=$mbl->nopol?>">
-                                <input type="file" name="fotombl">
-                                <input type="submit" class="btn btn-primary" value="Upload">
+                            <input type="hidden" name="nopol" value="<?= $mbl->nopol ?>">
+                            <input type="file" name="fotombl">
+                            <input type="submit" class="btn btn-primary" value="Upload">
                             <?php echo form_close() ?>
+                        <?php } ?>
                     </div>
 
                 </div>
