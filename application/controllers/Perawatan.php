@@ -66,7 +66,7 @@ class Perawatan extends CI_Controller
         $_deskripsi = $this->input->post('deskripsi'); // ? 4
         $_mobil_id = $this->input->post('mobil_id');  // ? 5
         $_jns_perawatan_id = $this->input->post('jns_perawatan_id'); // ? 6
-        $_edit = $this->input->post('edit'); //INI UNTUK MENGECEK APAKAH FORM INI UNTUK EDIT ATAU TAMBAH DATA MOBIL BARU (HIDDEN FIELD) ? 7
+        $_edit = $this->input->post('edit'); 
 
         $data_prw[] = $_tgl_perawatan; // ? 1
         $data_prw[] = $_biaya;  // ? 2
@@ -78,7 +78,7 @@ class Perawatan extends CI_Controller
 
         if (isset($_edit)) {
             // JIKA UPDATE DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD UPDATE YANG ADA DIDALAM MODEL PERAWATAN_MODEL.PHP
-            $data_prw[] = $_edit; // ? 9
+            $data_prw[] = $_edit; // 
             $this->perawatan->insert_perawatan($data_prw);
         } else {
             echo "Error";

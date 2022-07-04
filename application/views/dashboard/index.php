@@ -98,7 +98,7 @@
                                     <div style="margin-bottom: 2%">
                                         <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Detail</a>
                                         <!-- UNTUK LOGIC ROLE -->
-                                        <a href="<?= (base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button"></a>
+                                        <a href="<?= (base_url() . 'index.php/sewa/book?id='); ?><?= $obj->nopol ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button"></a>
                                     </div>
 
                                 </td>

@@ -19,9 +19,9 @@
             </div>
             <div class="info">
                 <a href="#" class="d-block">
-                    <?php if ($this->session->has_userdata('USERNAME')) {
-                        echo $this->session->userdata('USERNAME');
-                        echo ' @ ' . $this->session->userdata('ROLE');
+                    <?php if ($this->session->has_userdata('username')) {
+                        echo $this->session->userdata('username');
+                        echo ' @ ' . $this->session->userdata('role');
                     } ?>
                 </a>
             </div>
@@ -54,41 +54,40 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= base_url() .
-                                    'index.php/perawatan' ?>" class="nav-link">
-                        <i class=" fa fa-wrench"></i>
-                        <p>
-                            Daftar Perawatan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url() .
-                                    'index.php/sewa' ?>" class="nav-link">
-                        <i class="fa fa-check "></i>
-                        <p>
-                            Daftar Penyewaan
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url() .
-                                    'index.php/users' ?>" class="nav-link">
-                        <i class="fa fa-users"></i>
-                        <p>
-                            Daftar users
-                        </p>
-                    </a>
-                </li>
-                <!-- <li class="nav-item">
-                            <a class="btn btn-success" href="<?= base_url() .
-                                                                    'index.php/login/registrasi' ?>" role="button">REGISTER ADMIN</a>
-                        </li> -->
+                <?php if ($this->session->userdata('role') == 'administrator') { ?>
+                    <li class="nav-item">
+                        <a href="<?= base_url() .
+                                        'index.php/perawatan' ?>" class="nav-link">
+                            <i class=" fa fa-wrench"></i>
+                            <p>
+                                Daftar Perawatan
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() .
+                                        'index.php/sewa' ?>" class="nav-link">
+                            <i class="fa fa-check "></i>
+                            <p>
+                                Daftar Penyewaan
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="<?= base_url() .
+                                        'index.php/users' ?>" class="nav-link">
+                            <i class="fa fa-users"></i>
+                            <p>
+                                Daftar users
+                            </p>
+                        </a>
+                    </li>
+                <?php
+                }
+                ?>
                 <br>
                 <li class="nav-item">
-                    <a class="btn btn-danger" href="<?= base_url() .
-                                                        'index.php/login/logout' ?>" role="button">LOGOUT</a>
+                    <a class="btn btn-danger" href="<?= base_url() . 'index.php/users/logout' ?>" role="button">LOGOUT</a>
                 </li>
             </ul>
         </nav>

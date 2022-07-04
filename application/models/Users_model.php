@@ -15,18 +15,22 @@ class Users_model extends CI_Model{
         return $query->row();
     }
 
-    public function login($uname,$pass)
+    public function login($id, $uname,$pass)
     {
-        $sql = "SELECT * FROM users WHERE username = ? and password = MD5(?)";
-        $data = [$uname,$pass];
+        $sql = "SELECT * FROM users WHERE id=? and username = ? and password = MD5(?)";
+        $data = [$id, $uname,$pass];
         $query = $this->db->query($sql,$data);
         return $query->row();
     }
 
     public function register($data)
     {
-        $sql = "INSERT INTO users VALUES(DEFAULT,?,?,?, DEFAULT, DEFAULT, ?,?)";
+        $sql = "INSERT INTO users (username, password,email,created_at,last_login, status, role) VALUES (?,MD5(?),?,DEFAULT, DEFAULT,?,?)";
         $this->db->query($sql,$data);
     }
     
+    public function delete($id){ 
+        $this->db->where('username', $id);
+        $this->db->delete($this->table);
+    }
 }

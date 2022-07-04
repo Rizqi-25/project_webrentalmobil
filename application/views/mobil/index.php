@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+                <?php if ($this->session->userdata('role') == 'administrator') { ?>
 
                     <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/add'); ?>" role="button" style="margin-bottom: 2%">Tambah Mobil</a>
                     <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/index'); ?>" role="button" style="margin-bottom: 2%">Daftar Perawatan</a>
@@ -71,14 +71,16 @@
                                 <td>
                                     <div style="margin-bottom: 2%">
                                         <a class="btn btn-info" href="<?= (base_url() . 'index.php/mobil/view?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Detail</a>
-                                        <a href="<?= (base_url() . 'index.php/sewa/book'); ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
+                                        <a href="<?= (base_url() . 'index.php/sewa/book?id='); ?><?= $obj->nopol ?>"><input type="submit" class="btn btn-primary" value="BOOKING NOW!" role="button" style="margin-bottom: 2%"></a>
                                     </div>
-
-                                    <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Edit</a>
-                                    <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Lakukan Perawatan</a>
-                                    <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
-                                    <!-- UNTUK LOGIC ROLE -->
-
+                                    <?php if ($this->session->userdata('role') == 'administrator') { ?>
+                                        <a class="btn btn-success" href="<?= (base_url() . 'index.php/mobil/edit?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Edit</a>
+                                        <a class="btn btn-warning" href="<?= (base_url() . 'index.php/perawatan/do_perawatan?id='); ?><?= $obj->nopol ?>" style="margin-bottom: 2%">Lakukan Perawatan</a>
+                                        <a class="btn btn-danger" href="<?= (base_url() . 'index.php/mobil/delete?id='); ?><?= $obj->nopol ?>" onclick="if(!confirm('Anda Yakin Hapus Mobil dengan NOPOL <?= $obj->nopol ?>?')) {return false}">Delete</a>
+                                        <!-- UNTUK LOGIC ROLE -->
+                                    <?php
+                                    }
+                                    ?>
                                 </td>
                             </tr>
                         <?php

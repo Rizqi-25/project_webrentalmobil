@@ -1,4 +1,10 @@
 <!--
+<?php
+if (!$this->session->has_userdata('username')) {
+    redirect(base_url() . "index.php/users/login");
+}
+
+?>
 ?> -->
 
 <!DOCTYPE html>
@@ -46,7 +52,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="<?= (base_url() . 'index.php/mobil'); ?>" class="nav-link">Daftar Mobil</a>
                 </li>
-                <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+                <?php if ($this->session->userdata('role') == 'administrator') { ?>
                     <li class="nav-item d-none d-sm-inline-block">
                         <a href="<?= (base_url() . 'index.php/users'); ?>" class="nav-link">Daftar Users</a>
                     </li>

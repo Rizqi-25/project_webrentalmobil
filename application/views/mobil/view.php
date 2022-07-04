@@ -75,10 +75,10 @@
                         <a href="<?= (base_url() . 'index.php/sewa/book?id='); ?><?= $mbl->nopol ?> "><input type="submit" class="btn btn-primary" value="BOOKING NOW!"></a>
                     </div>
                     <div class="col-sm-4">
-                        <b>Foto</b>
-                        <br>
-                        <?php
-                        $filefoto = base_url('uploads/foto/' . $mbl->foto);
+                            <b>Foto</b>
+                            <br>
+                            <?php
+                            $filefoto = base_url('uploads/foto/' . $mbl->foto);
 
                         // echo $filefoto;
                         $array = get_headers($filefoto);
@@ -95,7 +95,7 @@
                         // }
                         ?>
                         <br>
-                        <?php if ($this->session->userdata('ROLE') == 'ADMIN') { ?>
+                        <?php if ($this->session->userdata('role') == 'administrator') { ?>
                             <b>Nama File: <?= $mbl->foto ?> </b>
                             <br>
                             <?php

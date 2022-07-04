@@ -25,7 +25,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-						<?php echo form_open('user/register') ?>
+						<?php echo form_open('users/regitrasiUser') ?>
 						<div class="form-group">
 							<input type="text" name="username" class="form-control" placeholder="Username" required>
 						</div>
@@ -35,7 +35,7 @@
 						</div>
 
 						<div class="form-group">
-							<input type="text" name="level" class="form-control" value="user" required>
+							<input type="text" name="role" class="form-control" value="public" required>
 							<!-- <select name="level" class="form-control">
 								<option placeholder="">Pilih Level</option>
 								<option placeholder="Kasir">Admin</option>
@@ -43,9 +43,12 @@
 
 							</select> -->
 						</div>
+						<div class="form-group">
+							<input type="text" name="status" class="form-control" value="1" required>
+						</div>
 
 						<div class="form-group">
-							<input id="password-field" type="password" class="form-control" placeholder="Password" required>
+							<input id="password-field" type="password" class="form-control" placeholder="Password" required name="password">
 							<span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 						</div>
 						<div class="form-group">
