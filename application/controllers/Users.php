@@ -1,31 +1,39 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Users extends CI_Controller 
+class Users extends CI_Controller
 {
-    public function index(){
-        $this->load->model('users_model','user');
+    public function index()
+    {
+        $this->load->model('users_model', 'user');
         $data['users'] = $this->user->getAll();
         $this->load->view('layout/header');
         $this->load->view('layout/sidebar');
-        $this->load->view('users/index' , $data);
+        $this->load->view('users/index', $data);
         $this->load->view('layout/footer');
     }
 
-    public function login(){
-        $this->load->model('users_model','user');
-        
+    public function login()
+    {
+        $this->load->model('users_model', 'user');
+
         $data = [];
         $data['users'] = $this->user->getAll();
-        $this->load->view('login',$data);
+        $this->load->view('login', $data);
+    }
+    public function loginF()
+    {
+
+
+        $data = [];
+
+        $this->load->view('loginF');
     }
 
     public function registrasi()
     {
         $data = [];
-        $this->load->view('registrasi',$data);
-        
-
+        $this->load->view('registrasi', $data);
     }
 
     public function regitrasiUser()
@@ -35,7 +43,7 @@ class Users extends CI_Controller
         $_password = $this->input->post('password');
         $_role = $this->input->post('role');
         $_status = $this->input->post('status');
-        $this->load->model('users_model','user');
+        $this->load->model('users_model', 'user');
         $data_user[] = $_username;
         $data_user[] = $_password;
         $data_user[] = $_email;
@@ -44,28 +52,30 @@ class Users extends CI_Controller
 
         $this->user->register($data_user);
 
-        redirect(base_url().'index.php/users/login');
+        redirect(base_url() . 'index.php/users/login');
     }
 
     public function autentikasi()
     {
-        $this->load->model('users_model','user');
+        $this->load->model('users_model', 'user');
         $id = $this->input->post('id');
         $_username = $this->input->post('username');
         $_password = $this->input->post('password');
 
-        $row = $this->user->login( $id, $_username, $_password);
+
+        $row = $this->user->login($id, $_username, $_password);
         if (isset($row)) {
-            $this->session->set_userdata('id',$row->id);
-            $this->session->set_userdata('username',$row->username);
-            $this->session->set_userdata('role',$row->role);
-            redirect(base_url().'index.php/mobil');
-        }else {
-            redirect(base_url().'login?status=f');
+            $this->session->set_userdata('id', $row->id);
+            $this->session->set_userdata('username', $row->username);
+            $this->session->set_userdata('role', $row->role);
+            redirect(base_url() . 'index.php/mobil');
+        } else {
+
+            redirect(base_url() . 'index.php/users/loginF');
         }
     }
 
-    
+
     public function delete()
     {
         $_user = $this->input->get('id');
@@ -78,6 +88,6 @@ class Users extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect(base_url().'index.php/dashboard');
+        redirect(base_url() . 'index.php/dashboard');
     }
 }
