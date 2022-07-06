@@ -86,7 +86,7 @@
                                         <div class="form-group row">
                                             <label for="deskirpsi" class="col-4 col-form-label">Deskripsi</label>
                                             <div class="col-8">
-                                                <textarea id="deskripsi" name="deskripsi" value="<?= $mbledit->deskripsi?>" cols="40" rows="5" class="form-control"></textarea>
+                                                <textarea id="deskripsi" name="deskripsi" value="" cols="40" rows="5" class="form-control"><?= $mbledit->deskripsi?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">
