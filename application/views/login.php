@@ -17,26 +17,19 @@
 </head>
 
 <body class="hold-transition login-page img" style="background-image: url(<?php echo base_url("dist/Registrasi/images/car2.jpg") ?>);">
-	
+	<div class="row justify-content-center">
 		<!-- /.login-logo -->
-		<div class="card card-default card-primary" style="width: 50%">
+		<div class="card card-primary  justify-content-center" style="width: 100%">
 			<div class="card-header text-center">
-				<a href="<?php echo base_url("index2.html") ?>" class="h1"><b>TI</b>11</a>
+				<p class="h1"><b>TI</b>11</p>
+				<p class="h2"><b>Web Rental Mobil</b></p>
 			</div>
-			<div class="row">
-				<div class=" col-sm-6">
-					<div class="card-body">
+			<div class="row justify-content-center">
+				<div class=" col-sm-12">
+					<div class="card-body ">
 						<p class="login-box-msg">Sign in to start your session</p>
 
 						<?php echo form_open('users/autentikasi') ?>
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="id" name="id">
-							<div class="input-group-append">
-								<div class="input-group-text">
-									<span class="fas fa-user"></span>
-								</div>
-							</div>
-						</div>
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" placeholder="Username" name="username">
 							<div class="input-group-append">
@@ -55,13 +48,13 @@
 						</div>
 						<div class="row">
 
-							<div class="col-3">
+							<div class="col-4">
 								<button type="submit" class="btn btn-primary btn-block">Login</button>
 							</div>
-							<div class="col-3">
+							<div class="col-4">
 								<a href="<?php echo base_url("index.php/users/registrasi") ?>" class="btn btn-primary">Register</a>
 							</div>
-							<div class="col-2">
+							<div class="col-4">
 								<a href="<?php echo base_url("index.php/dashboard") ?>" class="btn btn-danger">Cancel</a>
 							</div>
 							<!-- /.col -->
@@ -72,33 +65,13 @@
 					</div>
 				</div>
 
-				<div class=" col-sm-6">
-					<table class="table table-striped table-hover">
-						<thead>
-							<th>ID</th>
-							<th>Username</th>
-						</thead>
 
-						<tbody>
-							<?php
-							foreach ($users as $usr) {
-							?>
-								<tr>
-									<td><?= $usr->id ?></td>
-									<td><?= $usr->username ?></td>
-								</tr>
-							<?php
-							}
-							?>
-						</tbody>
-					</table>
-				</div>
 			</div>
 
 			<!-- /.card-body -->
 		</div>
 		<!-- /.card -->
-
+	</div>
 	<!-- /.login-box -->
 
 	<!-- jQuery -->

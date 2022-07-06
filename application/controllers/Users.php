@@ -58,12 +58,12 @@ class Users extends CI_Controller
     public function autentikasi()
     {
         $this->load->model('users_model', 'user');
-        $id = $this->input->post('id');
+        // $id = $this->input->post('id');
         $_username = $this->input->post('username');
         $_password = $this->input->post('password');
 
 
-        $row = $this->user->login($id, $_username, $_password);
+        $row = $this->user->login( $_username, $_password);
         if (isset($row)) {
             $this->session->set_userdata('id', $row->id);
             $this->session->set_userdata('username', $row->username);
