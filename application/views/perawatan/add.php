@@ -43,7 +43,7 @@
                                         <?php
                                         $hidden = ['edit' => $mbledit->nopol];
                                         ?>
-                                        <?php echo form_open('perawatan/save', '', $hidden) ?>
+                                        <?php echo form_open('perawatan/save','', $hidden) ?>
                                         <div class="form-group">
                                             <span class="form-label">Treatment Date</span>
                                             <input class="form-control" type="date" required name="tgl_perawatan">

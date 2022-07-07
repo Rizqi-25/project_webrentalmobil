@@ -74,16 +74,9 @@ class Perawatan extends CI_Controller
         $data_prw[] = $_deskripsi; // ? 4
         $data_prw[] = $_mobil_id; // ? 5
         $data_prw[] = $_jns_perawatan_id; // ? 6
+        $this->perawatan->insert_perawatan($data_prw);
 
-
-        if (isset($_edit)) {
-            // JIKA UPDATE DATA MOBIL MAKA KITA AKAN MENGGUNAKAN METHOD UPDATE YANG ADA DIDALAM MODEL PERAWATAN_MODEL.PHP
-            $data_prw[] = $_edit; // 
-            $this->perawatan->insert_perawatan($data_prw);
-        } else {
-            echo "Error";
-        }
-
+        
         redirect(base_url() . 'index.php/perawatan/', 'refresh');
     }
 
