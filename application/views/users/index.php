@@ -43,7 +43,7 @@
                             <th>Role</th>
                             <th>Created At</th>
                             <th>Last Login</th>
-                            <th>Action</th>
+                            
                     </thead>
                     <tbody>
                         <?php
@@ -57,8 +57,7 @@
                                 <td><?=$usr->role?></td>
                                 <td><?=$usr->created_at?></td>
                                 <td><?=$usr->last_login?></td>
-                                <td>
-                                <a class="btn btn-danger" href="<?= (base_url() . 'index.php/users/delete?id='); ?><?= $usr->username ?>" onclick="if(!confirm('Anda Yakin Hapus Users dengan username <?= $usr->username ?>?')) {return false}">Delete</a>
+                                
                             </tr>
                         <?php
                             $nomor++;
