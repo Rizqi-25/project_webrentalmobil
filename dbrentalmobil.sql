@@ -149,7 +149,7 @@ CREATE TABLE `mobil` (
   UNIQUE KEY `nopol_UNIQUE` (`nopol`),
   KEY `fk_produk_jenis_produk_idx` (`merk_id`),
   CONSTRAINT `fk_produk_jenis_produk` FOREIGN KEY (`merk_id`) REFERENCES `merk` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +158,7 @@ CREATE TABLE `mobil` (
 
 LOCK TABLES `mobil` WRITE;
 /*!40000 ALTER TABLE `mobil` DISABLE KEYS */;
-INSERT INTO `mobil` VALUES (1,'B2050SJD','putih',350000,'Jumlah Pintu 5 · Kapasitas Tempat Duduk 7 · Kapasitas Tangki Bahan Bakar (liter) 45 L · Ground Clearance 200 mm · Tinggi 1695 mm',1500,2020,2,'B2050SJD.jpg'),(2,'B27822EYD','hitam',300000,'Jumlah Pintu 5 · Kapasitas Tempat Duduk 7 · Kapasitas Tangki Bahan Bakar (liter) 35 L · Ground Clearance 200 mm · Tinggi 1600 mm',1300,2021,1,'B27822EYD.jpg'),(3,'B2020ZKT','Merah',300000,'Jumlah Pintu 5 ? Kapasitas Tempat Duduk 7 ? Kapasitas Tangki Bahan Bakar (liter) 35 L ? Ground Clearance 200 mm ? Tinggi 1600 mm',1200,2017,3,'B2020ZKT.jpg'),(4,'B2021ZKT','Biru',300000,'Jumlah Pintu 5 ? Kapasitas Tempat Duduk 7 ? Kapasitas Tangki Bahan Bakar (liter) 35 L ? Ground Clearance 200 mm ? Tinggi 1600 mm',1100,2016,4,'B2021ZKT.jpg');
+INSERT INTO `mobil` VALUES (1,'B2050SJD','putih',350000,'Jumlah Pintu 5 · Kapasitas Tempat Duduk 7 · Kapasitas Tangki Bahan Bakar (liter) 45 L · Ground Clearance 200 mm · Tinggi 1695 mm',1500,2020,2,'B2050SJD.jpg'),(2,'B27822EYD','hitam',300000,'Jumlah Pintu 5 · Kapasitas Tempat Duduk 7 · Kapasitas Tangki Bahan Bakar (liter) 35 L · Ground Clearance 200 mm · Tinggi 1600 mm',1300,2021,1,'B27822EYD.jpg'),(3,'B2020ZKT','Merah',300000,'Jumlah Pintu 5 ? Kapasitas Tempat Duduk 7 ? Kapasitas Tangki Bahan Bakar (liter) 35 L ? Ground Clearance 200 mm ? Tinggi 1600 mm',1200,2017,3,'B2020ZKT.jpg'),(4,'B2021ZKT','Biru',300000,'Jumlah Pintu 5 ? Kapasitas Tempat Duduk 7 ? Kapasitas Tangki Bahan Bakar (liter) 35 L ? Ground Clearance 200 mm ? Tinggi 1600 mm',1100,2016,4,'B2021ZKT.jpg'),(9,'B3214DAF','hitam',300000,'Mobilnya Bagus, Tahun Muda',1200,2017,3,'B3224DAF.jpg');
 /*!40000 ALTER TABLE `mobil` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -215,7 +215,7 @@ CREATE TABLE `sewa` (
   KEY `fk_pesanan_produk1_idx` (`mobil_id`),
   CONSTRAINT `fk_pesanan_produk1` FOREIGN KEY (`mobil_id`) REFERENCES `mobil` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_pesanan_users1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -224,7 +224,7 @@ CREATE TABLE `sewa` (
 
 LOCK TABLES `sewa` WRITE;
 /*!40000 ALTER TABLE `sewa` DISABLE KEYS */;
-INSERT INTO `sewa` VALUES (1,'2022-06-12','2022-06-16','Bandung','1041202300220',2,1);
+INSERT INTO `sewa` VALUES (1,'2022-06-12','2022-06-16','Bandung','1041202300220',2,1),(5,'2022-07-05','2022-07-07','Bandung','3276012504010007',7,1);
 /*!40000 ALTER TABLE `sewa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,13 +240,13 @@ CREATE TABLE `users` (
   `username` varchar(20) DEFAULT NULL,
   `password` varchar(200) DEFAULT NULL,
   `email` varchar(40) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `last_login` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `last_login` timestamp NOT NULL DEFAULT current_timestamp(),
   `status` smallint(6) DEFAULT NULL,
   `role` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,7 +255,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','0192023a7bbd73250516f069df18b500','admin@gmail.com','2022-06-11 23:51:03','2022-06-11 23:51:03',1,'administrator'),(2,'aminah','90b74c589f46e8f3a484082d659308bd','aminah@gmail.com','2022-06-11 23:51:08','2022-06-11 23:51:08',1,'public');
+INSERT INTO `users` VALUES (1,'admin','0192023a7bbd73250516f069df18b500','admin@gmail.com','2022-06-11 23:51:03','2022-06-11 23:51:03',1,'administrator'),(2,'aminah','90b74c589f46e8f3a484082d659308bd','aminah@gmail.com','2022-06-11 23:51:08','2022-06-11 23:51:08',1,'public'),(7,'rizqi','2d817ef0ef6206da3d06c752e71728a4','rizqi8517@gmail.com','2022-07-04 07:18:06','2022-07-04 07:18:06',1,'public');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -325,4 +325,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-02 20:18:02
+-- Dump completed on 2022-07-06 18:56:06
