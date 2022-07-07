@@ -72,6 +72,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 	</section>
 
 	<script src="<?php echo base_url("dist/Registrasi/js/jquery.min.js") ?>"></script>

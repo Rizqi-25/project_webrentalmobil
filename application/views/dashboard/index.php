@@ -30,7 +30,7 @@
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?php echo base_url("index.php/users/login") ?>">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url("index.php/users/register") ?>">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo base_url("index.php/users/registrasi") ?>">Register</a></li>
                 </ul>
             </div>
         </div>
@@ -65,13 +65,13 @@
                         <tr>
                             <th>NO</th>
                             <th>NOPOL</th>
-                            <th>MERK ID</th>
+                            <!-- <th>MERK ID</th> -->
                             <th>MERK</th>
                             <th>PRODUK</th>
                             <th>WARNA</th>
                             <th>BIAYA SEWA</th>
                             <th>CC</th>
-                            <th>MOBIL ID</th>
+                            <!-- <th>MOBIL ID</th> -->
                             <th>Tahun</th>
                             <th>Deskipsi</th>
                             <th>Action</th>
@@ -85,13 +85,13 @@
                             <tr>
                                 <td><?= $nomor ?></td>
                                 <td><?= $obj->nopol ?></td>
-                                <td><?= $obj->merk_id ?></td>
+                                <!-- <td><?= $obj->merk_id ?></td> -->
                                 <td><?= $obj->merk ?></td>
                                 <td><?= $obj->produk ?></td>
                                 <td><?= $obj->warna ?></td>
                                 <td><?= $obj->biaya_sewa ?></td>
                                 <td><?= $obj->cc ?></td>
-                                <td><?= $obj->mobil_id ?></td>
+                                <!-- <td><?= $obj->mobil_id ?></td> -->
                                 <td><?= $obj->tahun ?></td>
                                 <td style="width:20%"><?= $obj->deskripsi ?> </td>
                                 <td>
